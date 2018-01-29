@@ -1,0 +1,7 @@
+add_subdirectory( betterchaind )
+add_subdirectory( betterchainc )
+add_subdirectory( betterchain-walletd )
+add_subdirectory( launcher )
+add_subdirectory( codegen )
+add_subdirectory( applesedemo )
+add_subdirectory( abi_gen )

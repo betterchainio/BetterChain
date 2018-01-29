@@ -1,0 +1,27 @@
+version: "2"
+
+services:
+  betterchaind:
+    build:
+      context: .
+    image: betterchain/betterchain
+    command: /opt/betterchain/bin/start_betterchaind.sh
+    ports:
+      - 8888:8888
+      - 9876:9876
+    expose:
+      - "8888"
+    volumes:
+      - betterchaind-data-volume:/opt/betterchain/bin/data-dir
+
+  walletd:
+    image: betterchain/betterchain
+    command: /opt/betterchain/bin/betterchain-walletd
+    links:
+      - betterchaind
+    volumes:
+      - walletd-data-volume:/opt/betterchain/bin/data-dir
+
+volumes:
+  betterchaind-data-volume:
+  walletd-data-volume:

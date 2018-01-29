@@ -1,0 +1,11 @@
+/** @file 
+ *    @copyright defined in BetterChain/LICENSE.txt 
+ *
+ * \warning This file is machine generated. DO NOT EDIT.  See config.hpp.in for changes.
+ */
+
+namespace betterchain { namespace client { namespace config {
+   constexpr char version_str[] = "${betterchainc_BUILD_VERSION}";
+   constexpr char locale_path[] = "${LOCALEDIR}";
+   constexpr char locale_domain[] = "${LOCALEDOMAIN}";
+}}}

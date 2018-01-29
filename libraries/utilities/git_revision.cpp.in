@@ -1,0 +1,14 @@
+#include <stdint.h>
+#include <betterchain/utilities/git_revision.hpp>
+
+#define BETTERCHAIN_GIT_REVISION_SHA "@BETTERCHAIN_GIT_REVISION_SHA@"
+#define BETTERCHAIN_GIT_REVISION_UNIX_TIMESTAMP @BETTERCHAIN_GIT_REVISION_UNIX_TIMESTAMP@
+#define BETTERCHAIN_GIT_REVISION_DESCRIPTION "@BETTERCHAIN_GIT_REVISION_DESCRIPTION@"
+
+namespace betterchain { namespace utilities {
+
+const char* const git_revision_sha = BETTERCHAIN_GIT_REVISION_SHA;
+const uint32_t git_revision_unix_timestamp = BETTERCHAIN_GIT_REVISION_UNIX_TIMESTAMP;
+const char* const git_revision_description = BETTERCHAIN_GIT_REVISION_DESCRIPTION;
+
+} } // end namespace betterchain::utilities
