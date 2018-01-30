@@ -1,6 +1,6 @@
 ## BetterChain - The Most Powerful Infrastructure for Decentralized Applications
 
-[![Build Status](https://travis-ci.org/BetterChain/betterchain.svg?branch=master)](https://travis-ci.org/BetterChain/betterchain)
+[![Build Status](https://travis-ci.org/BetterChain/betterchain.svg?branch=master)](https://travis-ci.org/betterchainio/BetterChain)
 
 Welcome to the BetterChain source code repository!  BetterChain software enables developers to create and deploy
 high-performance, horizontally scalable, blockchain infrastructure upon which decentralized applications
@@ -10,7 +10,7 @@ This code is currently alpha-quality and under rapid development. That said,
 there is plenty early experimenters can do including running a private multi-node test network and
 developing applications (smart contracts).
 
-The public testnet described in the [wiki](https://github.com/betterchainio/betterchain/wiki/Testnet%3A%20Public) is running  `master` branch is no longer compatible with the public testnet.  Instructions are provided below for building either option.
+The public testnet described in the [wiki](https://github.com/betterchainio/BetterChain/wiki/Testnet%3A%20Public) is running  `master` branch is no longer compatible with the public testnet.  Instructions are provided below for building either option.
 
 # Table of contents
 
@@ -67,7 +67,7 @@ Choose whether you will be building for a local testnet or for the public testne
 #### Clean install Ubuntu 16.10 for a local testnet
 
 ```bash
-git clone https://github.com/betterchain/betterchain --recursive
+git clone https://github.com/betterchainio/BetterChain --recursive
 
 cd betterchain
 ./build.sh ubuntu
@@ -79,7 +79,7 @@ Now you can proceed to the next step - [Creating and launching a single-node tes
 #### Clean install Ubuntu 16.10 for the public testnet
 
 ```bash
-git clone https://github.com/betterchain/betterchain --recursive
+git clone https://github.com/betterchainio/BetterChain --recursive
 
 cd betterchain
 git checkout dawn-2.x
