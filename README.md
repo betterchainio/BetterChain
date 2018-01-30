@@ -101,7 +101,7 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 Then clone the BetterChain repository recursively and run build.sh in the root `betterchain` folder.
 
 ```bash
-git clone https://github.com/betterchain/betterchain --recursive
+git clone https://github.com/betterchainio/BetterChain --recursive
 
 cd betterchain
 ./build.sh darwin
@@ -122,7 +122,7 @@ ruby -e "$(curl -fsSl https://raw.githubusercontent.com/Homebrew/install/master/
 Then clone the BetterChain repository recursively, checkout the branch that is compatible with the public testnet, and run build.sh in the root `betterchain` folder.
 
 ```bash
-git clone https://github.com/betterchain/betterchain --recursive
+git clone https://github.com/betterchainio/BetterChain --recursive
 
 cd betterchain
 git checkout dawn-2.x
@@ -140,7 +140,7 @@ Now you can proceed to the next step - [Running a node on the public testnet](#p
 To download all of the code, download BetterChain source code and a recursion or two of submodules. The easiest way to get all of this is to do a recursive clone:
 
 ```bash
-git clone https://github.com/betterchain/betterchain --recursive
+git clone https://github.com/betterchainio/BetterChain --recursive
 ```
 
 If a repo is cloned without the `--recursive` flag, the submodules can be retrieved after the fact by running this command from within the repo:
@@ -157,8 +157,8 @@ This is needed to compile the example contracts inside `betterchain/contracts` f
 
 ```bash
 cd ~
-git clone https://github.com/betterchain/betterchain --recursive
-mkdir -p ~/betterchain/build && cd ~/betterchain/build
+git clone https://github.com/betterchainio/BetterChain --recursive
+mkdir -p ~/BetterChain/build && cd ~/BetterChain/build
 cmake -DBINARYEN_BIN=~/binaryen/bin -DOPENSSL_ROOT_DIR=/usr/local/opt/openssl -DOPENSSL_LIBRARIES=/usr/local/opt/openssl/lib ..
 make -j4
 ```
@@ -171,12 +171,12 @@ For a debug build, add `-DCMAKE_BUILD_TYPE=Debug`. Other common build types incl
 
 To run the test suite after building, run the `chain_test` executable in the `tests` folder.
 
-BetterChain comes with a number of programs you can find in `~/betterchain/build/programs`. They are listed below:
+BetterChain comes with a number of programs you can find in `~/BetterChain/build/programs`. They are listed below:
 
 * betterchaind - server-side blockchain node component
 * betterchainc - command line interface to interact with the blockchain
 * betterchain-walletd - BetterChain wallet
-* launcher - application for nodes network composing and deployment; [more on launcher](https://github.com/betterchainio/betterchain/blob/master/testnet.md)
+* launcher - application for nodes network composing and deployment; [more on launcher](https://github.com/betterchainio/BetterChain/blob/master/testnet.md)
 
 <a name="singlenode"></a>
 ### Creating and launching a single-node testnet
@@ -187,7 +187,7 @@ Edit the `config.ini` file, adding/updating the following settings to the defaul
 
 ```
 # Load the testnet genesis state, which creates some initial block producers with the default key
-genesis-json = /path/to/betterchain/source/genesis.json
+genesis-json = /path/to/BetterChain/source/genesis.json
  # Enable production on a stale chain, since a single-node test chain is pretty much always stale
 enable-stale-production = true
 # Enable block production with the testnet producers
@@ -226,10 +226,10 @@ Now it should be possible to run `betterchaind` and see it begin producing block
 When running `betterchaind` you should get log messages similar to below. It means the blocks are successfully produced.
 
 ```
-1575001ms thread-0   chain_controller.cpp:235      _push_block          ] initm #1 @2017-09-04T04:26:15  | 0 trx, 0 pending, exectime_ms=0
-1575001ms thread-0   producer_plugin.cpp:207       block_production_loo ] initm generated block #1 @ 2017-09-04T04:26:15 with 0 trxs  0 pending
-1578001ms thread-0   chain_controller.cpp:235      _push_block          ] initc #2 @2017-09-04T04:26:18  | 0 trx, 0 pending, exectime_ms=0
-1578001ms thread-0   producer_plugin.cpp:207       block_production_loo ] initc generated block #2 @ 2017-09-04T04:26:18 with 0 trxs  0 pending
+1575001ms thread-0   chain_controller.cpp:235      _push_block          ] initm #1 @2018-01-14T04:26:15  | 0 trx, 0 pending, exectime_ms=0
+1575001ms thread-0   producer_plugin.cpp:207       block_production_loo ] initm generated block #1 @ 2018-01-14T04:26:15 with 0 trxs  0 pending
+1578001ms thread-0   chain_controller.cpp:235      _push_block          ] initc #2 @2018-01-14T04:26:18  | 0 trx, 0 pending, exectime_ms=0
+1578001ms thread-0   producer_plugin.cpp:207       block_production_loo ] initc generated block #2 @ 2018-01-14T04:26:18 with 0 trxs  0 pending
 ...
 ```
 
@@ -244,7 +244,7 @@ BetterChain comes with example contracts that can be uploaded and run for testin
 First, run the node
 
 ```bash
-cd ~/betterchain/build/programs/betterchaind/
+cd ~/BetterChain/build/programs/betterchaind/
 ./betterchaind
 ```
 
@@ -254,7 +254,7 @@ cd ~/betterchain/build/programs/betterchaind/
 As you've previously added `plugin = betterchain::wallet_api_plugin` into `config.ini`, BetterChain wallet will be running as a part of `betterchaind` process. Every contract requires an associated account, so first, create a wallet.
 
 ```bash
-cd ~/betterchain/build/programs/betterchainc/
+cd ~/BetterChain/build/programs/betterchainc/
 ./betterchainc wallet create # Outputs a password that you need to save to be able to lock/unlock the wallet
 ```
 
@@ -270,7 +270,7 @@ For the purpose of this walkthrough, import the private key of the `inita` accou
 First, generate some public/private key pairs that will be later assigned as `owner_key` and `active_key`.
 
 ```bash
-cd ~/betterchain/build/programs/betterchainc/
+cd ~/BetterChain/build/programs/betterchainc/
 ./betterchainc create key # owner_key
 ./betterchainc create key # active_key
 ```
@@ -421,7 +421,7 @@ To run a local testnet you can use a `launcher` application provided in the `~/b
 For testing purposes you will run two local production nodes talking to each other.
 
 ```bash
-cd ~/betterchain/build
+cd ~/BetterChain/build
 cp ../genesis.json ./
 ./programs/launcher/launcher -p2 --skip-signature
 ```
@@ -444,7 +444,7 @@ To confirm the nodes are running, run the following `betterchainc` commands:
 
 For each command, you should get a JSON response with blockchain information.
 
-You can read more on launcher and its settings [here](https://github.com/betterchainio/betterchain/blob/master/testnet.md)
+You can read more on launcher and its settings [here](https://github.com/betterchainio/BetterChain/blob/master/testnet.md)
 
 <a name="publictestnet"></a>
 ## Running a local node connected to the public testnet
@@ -452,7 +452,7 @@ You can read more on launcher and its settings [here](https://github.com/betterc
 To run a local node connected to the public testnet operated by block.one, a script is provided.
 
 ```bash
-cd ~/betterchain/build/scripts
+cd ~/BetterChain/build/scripts
 ./start_npnode.sh
 ```
 
@@ -475,17 +475,17 @@ tail -F testnet_np/stderr.txt
 To exit tail, use Ctrl-C.  During synchronization, you will see log messages similar to:
 
 ```bash
-3439731ms            chain_plugin.cpp:272          accept_block         ] Syncing Blockchain --- Got block: #200000 time: 2017-12-09T07:56:32 producer: initu
-3454532ms            chain_plugin.cpp:272          accept_block         ] Syncing Blockchain --- Got block: #210000 time: 2017-12-09T13:29:52 producer: initc
+3439731ms            chain_plugin.cpp:272          accept_block         ] Syncing Blockchain --- Got block: #200000 time: 2018-01-09T07:56:32 producer: initu
+3454532ms            chain_plugin.cpp:272          accept_block         ] Syncing Blockchain --- Got block: #210000 time: 2018-01-09T13:29:52 producer: initc
 ```
 
 Synchronization is complete when you see log messages similar to:
 
 ```bash
 42467ms            net_plugin.cpp:1245           start_sync           ] Catching up with chain, our last req is 351734, theirs is 351962 peer ip-10-160-11-116:9876
-42792ms            chain_controller.cpp:208      _push_block          ] initt #351947 @2017-12-12T22:59:44  | 0 trx, 0 pending, exectime_ms=0
-42793ms            chain_controller.cpp:208      _push_block          ] inito #351948 @2017-12-12T22:59:46  | 0 trx, 0 pending, exectime_ms=0
-42793ms            chain_controller.cpp:208      _push_block          ] initd #351949 @2017-12-12T22:59:48  | 0 trx, 0 pending, exectime_ms=0
+42792ms            chain_controller.cpp:208      _push_block          ] initt #351947 @2018-01-12T22:59:44  | 0 trx, 0 pending, exectime_ms=0
+42793ms            chain_controller.cpp:208      _push_block          ] inito #351948 @2018-01-12T22:59:46  | 0 trx, 0 pending, exectime_ms=0
+42793ms            chain_controller.cpp:208      _push_block          ] initd #351949 @2018-01-12T22:59:48  | 0 trx, 0 pending, exectime_ms=0
 ```
 
 This betterchaind instance listens on 127.0.0.1:8888 for http requests, on all interfaces at port 9877
@@ -501,7 +501,7 @@ For the public testnet branch: http://htmlpreview.github.io/?https://github.com/
 <a name="docker"></a>
 ## Running BetterChain in Docker
 
-You can find up to date information about BetterChain Docker in the [Docker Readme](https://github.com/betterchainio/betterchain/blob/master/Docker/README.md)
+You can find up to date information about BetterChain Docker in the [Docker Readme](https://github.com/betterchainio/BetterChain/blob/master/Docker/README.md)
 
 <a name="manualdep"></a>
 ## Manual installation of the dependencies
